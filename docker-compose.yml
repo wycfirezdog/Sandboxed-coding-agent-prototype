@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  agent:
+    build: .
+    image: sandboxed-agent:dev
+    ports:
+      - "8000:8000" # FastAPI
+      - "8888:8888" # JupyterLab
+      - "6080:6080" # noVNC (WebSocket)
+    privileged: true  # needed for Firecracker 

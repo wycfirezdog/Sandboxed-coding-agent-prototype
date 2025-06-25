@@ -1,0 +1,1 @@
+"""FastAPI application exposing schedule/status endpoints.""" 
