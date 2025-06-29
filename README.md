@@ -10,9 +10,7 @@ This repository contains a reference implementation of a **sandboxed coding agen
    * `POST /schedule` – queue a new job (code, script, or GUI task)
    * `GET  /status/{job_id}` – inspect the status & output of a running/completed job
 6. **Package everything inside a single Docker image** that boots an X-server, noVNC, JupyterLab, and the FastAPI control plane.
-7. **(Bonus) Support horizontal scaling** through deploy manifests for **Kubernetes** and **HashiCorp Nomad**.
-
-> ⚠️  This project is a reference **prototype**.  It is **not production-hardened** and should be used for experimentation only.
+7.Deployed of fly
 
 ---
 
