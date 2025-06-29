@@ -1,0 +1,51 @@
+# fly.toml app configuration file generated for assignment-rough-waterfall-664 on 2025-06-29T08:56:03+05:30
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'assignment-rough-waterfall-664'
+primary_region = 'bom'
+
+[build]
+
+[http_service]
+  internal_port = 8001
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+# API  → we'll let Fly put this on 80/443
+[[services]]
+  internal_port = 8001          # what uvicorn listens on
+  protocol      = "tcp"
+  auto_start    = true
+  auto_stop     = false
+  [services.concurrency]
+    type = "requests"
+    hard_limit = 100
+    soft_limit = 50
+  [[services.ports]]
+    port = 80                   # http
+  [[services.ports]]
+    port = 443                  # https
+
+# JupyterLab  (optional – comment out if you don't need it public)
+[[services]]
+  internal_port = 8888
+  protocol      = "tcp"
+  [[services.ports]]
+    port = 8888                 # reach it at https://APP.fly.dev:8888
+
+# noVNC  (optional)
+[[services]]
+  internal_port = 6081
+  protocol      = "tcp"
+  [[services.ports]]
+    port = 6081                 # reach it at https://APP.fly.dev:6081

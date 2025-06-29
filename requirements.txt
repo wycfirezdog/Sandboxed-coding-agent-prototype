@@ -3,4 +3,5 @@ uvicorn[standard]==0.29.0
 pydantic==2.7.1
 python-multipart==0.0.7
 aiofiles==23.2.1
+httpx<0.26
 jupyterlab==4.2.1          # In-browser IDE 

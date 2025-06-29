@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # ---------- System packages ----------
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
-        xvfb x11vnc xauth xinit xdotool \
+        xvfb x11vnc xauth xinit xdotool procps \
         wget ca-certificates git supervisor \
         && rm -rf /var/lib/apt/lists/*
 
